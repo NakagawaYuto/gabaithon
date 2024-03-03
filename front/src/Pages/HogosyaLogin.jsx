@@ -15,12 +15,26 @@ import {
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-const Login = () => {
+const Login = ({showFlashAlert}) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = React.useState(false);
+  const [name, setName] = React.useState('');
+  const [password, setPassword] = React.useState('');
   const gridWidth = '80%';
   const gridMargin = '20px';
   const fontSize = '30px';
+
+  const checkLogin = () => {
+    const valid_name = 'てすとゆーざ';
+    const valid_password = 'nakayama7579'
+    if (valid_name===name && valid_password===password) {
+      showFlashAlert('success', 'ろぐいん成功！')
+      navigate('/home-p')
+    }
+    else {
+      showFlashAlert('error', 'おなまえ か ぱすわぁどがまちがってるよ')
+    }
+  }
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -54,6 +68,8 @@ const Login = () => {
                 fontSize: fontSize,
               },
             }}
+            value={name}
+            onChange={event => setName(event.target.value)}
           />
         </Grid>
         {/* ぱすわーど */}
@@ -85,6 +101,8 @@ const Login = () => {
                 </InputAdornment>
               }
               label="Password"
+              value={password}
+              onChange={event => setPassword(event.target.value)}
             />
           </FormControl>
         </Grid>
@@ -96,7 +114,7 @@ const Login = () => {
           backgroundColor: '#C7D6F4',
           color: 'black',
         }}
-        onClick={() => { navigate('/home-p')}}
+        onClick={() => {checkLogin()}}
       >ろぐいん</Button>
     </>
   )
