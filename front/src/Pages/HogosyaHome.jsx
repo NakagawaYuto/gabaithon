@@ -12,16 +12,15 @@ import JijiBabaCard from '../components/JijiBabaCard';
 
 const HogosyaHome = () => {
   const navigate = useNavigate();
-  const [childLists, setChildLists] = React.useState([]);
+  const [jijiBabaLists, setJijiBabaLists] = React.useState([]);
   const [selectedIndex, setSelectedIndex] = React.useState(-1);
 
   const handleSelect = (event, index) => {
-    console.log(index);
     setSelectedIndex(index);
   }
 
   React.useEffect(() => {
-    setChildLists([
+    setJijiBabaLists([
       {
         'name':'おじいさん', 
         'address': '住所', 
@@ -50,7 +49,7 @@ const HogosyaHome = () => {
   }, []);
 
   const generate = () => {
-    return childLists.map((value, index) => (
+    return jijiBabaLists.map((value, index) => (
       <Collapse key={index}>
         <JijiBabaCard 
           index={index} 
@@ -61,6 +60,7 @@ const HogosyaHome = () => {
       </Collapse>
     ))
   }
+
   return (
     <>
       <List>
