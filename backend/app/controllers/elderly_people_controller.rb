@@ -20,7 +20,7 @@ class ElderlyPeopleController < ApplicationController
         render json: @elderly_people
     end
 
-    # PATCH/PUT /articles/:id
+    # PATCH/PUT /elderly_people/:id
     def update
         if @elderly_people.update(elderly_people_params)
             render json: @elderly_people
@@ -29,7 +29,7 @@ class ElderlyPeopleController < ApplicationController
         end
     end
 
-    # DELETE /articles/:id
+    # DELETE /elderly_people/:id
     def destroy
         @elderly_people.destroy
         head :no_content
