@@ -8,32 +8,36 @@ import { useNavigate } from 'react-router-dom';
 
 import './css/App.css';
 
-import HomePage from './Pages/HomePage';
-import EditPage from './Pages/EditPage';
-import BlogPage from './Pages/BlogPage';
-import NotFound from "./Pages/NotFoundPage"; 
-import AddPage from './Pages/AddPage';
+import IndexPage from './pages/IndexPage';
+import HogosyaHome from './pages/HogosyaHome';
+import JijiBabaHome from './pages/JijiBabaHome';
+import HogosyaLogin from './pages/HogosyaLogin';
+import JijiBabaLogin from './pages/JijiBabaLogin';
+import ChatPage from './pages/ChatPage';
+import NotFound from './pages/NotFoundPage';
 
 function App() {
   const navigate = useNavigate();
   return (
     <div className='App' >
       <AppBar position='sticky' style={{ color: "#e0f2f1", backgroundColor: "#3c3c3c" }} >
-        <Toolbar variant='dense'>
+        {/* <Toolbar variant='dense'>
           <IconButton edge='start' color='inherit' aria-label='menu' onClick={() => { navigate('/')}}>
             <MenuBookIcon/>
           </IconButton>
           <Typography variant='h6' color='inherit' style={{ fontFamily:'serif' }}>
             本Book
           </Typography>
-        </Toolbar>
+        </Toolbar> */}
       </AppBar>
       <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/edit/" element={<EditPage />} />
-        <Route path="/blog/:id" element={<BlogPage />} />
+        <Route path="/" element={<IndexPage/>} />
+        <Route path="/login-p/" element={<HogosyaLogin />} />
+        <Route path="/login-g" element={<JijiBabaLogin/>} />
+        <Route path="home-p" element={<HogosyaHome />} />
+        <Route path="home-g" element={<JijiBabaHome />} />
+        <Route path="/chat/:id" element={<ChatPage />} />
         <Route path="/*" element={<NotFound />} />
-        <Route path="/add/" element={<AddPage />} />
       </Routes>
     </div>
   );
