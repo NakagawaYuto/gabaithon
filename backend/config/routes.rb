@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :elderly_people
+  resources :parents
+  resources :children
+  resources :chats
+  resources :evaluations
 end
