@@ -13,7 +13,6 @@ import MessageInput from '../components/MessageInputBar';
 import TalkLog from '../components/TalkHistory';
 import MatchEndButton from '../components/MatchEndButton';
 
-
 const ChatPage = () => {
   const params = useParams();
   const [talklog, setTalkLog] = React.useState([]);

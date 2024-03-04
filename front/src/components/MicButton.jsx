@@ -20,7 +20,7 @@ function ListeningControl(isPushed){
 }
 
 // 音声認識ボタン
-const MicButton = () => {
+const MicButton = (props) => {
   const [isPushed, setMessage] = useState(false);
   const {
     transcript,
@@ -29,9 +29,17 @@ const MicButton = () => {
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
 
+  //props.handleChangeTranscript(transcript)
+
+  const clickButton = () => {
+    let p = ListeningControl(isPushed)
+    setMessage(p)
+    props.handleIsMicOn(p)
+  }
+
   return (
     <div className="mic-input-container">
-      <button className='mic-button' onClick={() => setMessage(ListeningControl(isPushed))}>
+      <button className='mic-button' onClick={clickButton}>
         <MicIcon />
       </button>
       {/* <p>{transcript}</p> */}
