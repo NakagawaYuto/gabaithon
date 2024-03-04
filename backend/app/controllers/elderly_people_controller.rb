@@ -45,6 +45,6 @@ class ElderlyPeopleController < ApplicationController
     end
 
     def elderly_people_params
-        params.require(:elderly_people).permit(:name, :gender)
+        params.require(:elderly_people).permit(:name, :address, :date_of_birth, :gender, :self_introduction)
     end
 end
