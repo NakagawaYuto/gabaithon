@@ -22,3 +22,7 @@ ElderlyPerson.create!(
   gender: "female",
   self_introduction: "Hi, I'm Jane Smith."
 )
+
+Parent.create!(
+  name: "parent name"
+)
