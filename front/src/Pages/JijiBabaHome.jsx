@@ -1,4 +1,5 @@
 import * as React from 'react';
+import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -11,6 +12,7 @@ import ChildCard from '../components/ChildrenCard';
 
 
 const JijiBabaHome = () => {
+  const baseURL = "http://localhost:3000/elderly_people/"
   const navigate = useNavigate();
   const [childLists, setChildLists] = React.useState([]);
   const [selectedIndex, setSelectedIndex] = React.useState(-1);
@@ -23,31 +25,40 @@ const JijiBabaHome = () => {
     navigate('/chat/'+String(index));
   }
 
-  React.useEffect(() => {
-    setChildLists([
-      {
-        'name':'あかさん', 
-        'address': '住所', 
-        'birthday': '2000/9/21', 
-        'age': '10',
-        'sex': '男', 
-      },
-      {
-        'name':'あかんボウ', 
-        'address': '住所', 
-        'birthday': '2000/9/21', 
-        'age': '10',
-        'sex': '男', 
-      },
-      {
-        'name':'あかちゃん', 
-        'address': '住所', 
-        'birthday': '2000/9/21', 
-        'age': '10',
-        'sex': '男', 
-      },
-    ]);
-  }, []);
+  // React.useEffect(() => {
+  //   setChildLists([
+  //     {
+  //       'name':'あかさん', 
+  //       'address': '住所', 
+  //       'birthday': '2000/9/21', 
+  //       'age': '10',
+  //       'sex': '男', 
+  //     },
+  //     {
+  //       'name':'あかんボウ', 
+  //       'address': '住所', 
+  //       'birthday': '2000/9/21', 
+  //       'age': '10',
+  //       'sex': '男', 
+  //     },
+  //     {
+  //       'name':'あかちゃん', 
+  //       'address': '住所', 
+  //       'birthday': '2000/9/21', 
+  //       'age': '10',
+  //       'sex': '男', 
+  //     },
+  //   ]);
+  // }, []);
+
+  // 初回ロード時の処理を記述する.
+  React.useEffect(() => 
+    {
+      axios.get(baseURL).then((response) => {
+        setChildLists(response.data);
+      });
+    }, []);
+  // if (!blogs) return null;
 
   const generate = () => {
     return childLists.map((value, index) => (
