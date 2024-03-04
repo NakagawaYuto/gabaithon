@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_04_071301) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_04_085409) do
   create_table "chats", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "eldery_person_id"
     t.integer "parent_id"
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_04_071301) do
     t.date "date_of_birth"
     t.string "gender"
     t.text "self_introduction"
+  end
+
+  create_table "evaluations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "elderly_person_id"
+    t.integer "parent_id"
+    t.integer "evaluation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["elderly_person_id"], name: "index_evaluations_on_elderly_person_id"
   end
 
   create_table "parents", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

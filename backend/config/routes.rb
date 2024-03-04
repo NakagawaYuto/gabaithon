@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :parents
   resources :children
   resources :chats
+  resources :evaluations
 end
