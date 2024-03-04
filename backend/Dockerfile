@@ -15,8 +15,14 @@ RUN gem update --system ${RUBYGEMS_VERSION} && \
 
 COPY . /api
 
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+RUN set -e
 
-CMD ["rails", "server", "-b", "0.0.0.0", "8001"]
+RUN rm -f /api/tmp/pids/server.pid
+
+RUN exec "$@"
+
+# COPY entrypoint.sh /usr/bin/
+# RUN chmod +x /usr/bin/entrypoint.sh
+# ENTRYPOINT ["entrypoint.sh"]
+
+CMD ["rails", "server", "-b", "0.0.0.0"]
