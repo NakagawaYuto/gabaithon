@@ -1,0 +1,2 @@
+class ElderlyPerson < ApplicationRecord
+end
