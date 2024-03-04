@@ -32,3 +32,7 @@ Child.create(name: "Child 1", gender: "Male", parent_id: parent1.id)
 Child.create(name: "Child 2", gender: "Female", parent_id: parent1.id)
 Child.create(name: "Child 3", gender: "Male", parent_id: parent2.id)
 Child.create(name: "Child 4", gender: "Female", parent_id: parent2.id)
+
+
+# バックエンド確認用
+# Chat.create(eldery_person_id: 1, parent_id: 1, speaker:"elderly_person", message_content:"メッセージの内容", datetime:DateTime.now)
