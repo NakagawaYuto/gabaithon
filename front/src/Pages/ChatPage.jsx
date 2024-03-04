@@ -11,6 +11,7 @@ import {
 
 import MessageInput from '../components/MessageInputBar';
 import TalkLog from '../components/TalkHistory';
+import MatchEndButton from '../components/MatchEndButton';
 
 
 const ChatPage = () => {
@@ -66,6 +67,7 @@ const ChatPage = () => {
           style={{
             width: '90%', 
             margin: 0,
+            marginTop: '20px',
             padding: 0,
           }}
         >
@@ -75,6 +77,7 @@ const ChatPage = () => {
           <MessageInput onSendMessage={handleSendMessage}/>
         </Grid>
       </Grid>
+      <MatchEndButton/>
     </>
   )
 }
