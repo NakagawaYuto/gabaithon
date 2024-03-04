@@ -26,6 +26,11 @@ DB作成したらマイグレーションしてください．
 docker compose exec api rails generate model [モデル名] [カラム名:型]
 ```
 
+マイグレーションファイル生成<br>
+```sh
+docker compose exec api rails generate migration [ファイル名]
+```
+
 コントローラー作成<br>
 モデル名がParentだったら，[モデル名の複数形]はParents<br>
 ```sh
