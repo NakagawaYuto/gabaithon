@@ -36,3 +36,4 @@ Child.create(name: "Child 4", gender: "Female", parent_id: parent2.id, age: 5)
 
 # バックエンド確認用
 # Chat.create(eldery_person_id: 1, parent_id: 1, speaker:"elderly_person", message_content:"メッセージの内容", datetime:DateTime.now)
+# Evaluation.create(elderly_person_id: 1, parent_id: 1, evaluation: 3)
