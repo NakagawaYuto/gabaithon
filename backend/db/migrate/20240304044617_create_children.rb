@@ -4,6 +4,7 @@ class CreateChildren < ActiveRecord::Migration[7.0]
       t.references :parent, forreign_key: true
       t.string :name
       t.string :gender
+      t.integer :age
       t.timestamps
     end
   end

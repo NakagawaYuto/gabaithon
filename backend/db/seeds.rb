@@ -28,10 +28,10 @@ parent1 = Parent.create(name: "Parent 1")
 parent2 = Parent.create(name: "Parent 2")
 
 # Create Children associated with Parents
-Child.create(name: "Child 1", gender: "Male", parent_id: parent1.id)
-Child.create(name: "Child 2", gender: "Female", parent_id: parent1.id)
-Child.create(name: "Child 3", gender: "Male", parent_id: parent2.id)
-Child.create(name: "Child 4", gender: "Female", parent_id: parent2.id)
+Child.create(name: "Child 1", gender: "Male", parent_id: parent1.id, age: 2)
+Child.create(name: "Child 2", gender: "Female", parent_id: parent1.id, age: 3)
+Child.create(name: "Child 3", gender: "Male", parent_id: parent2.id, age: 4)
+Child.create(name: "Child 4", gender: "Female", parent_id: parent2.id, age: 5)
 
 
 # バックエンド確認用

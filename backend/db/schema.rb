@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_04_071301) do
     t.bigint "parent_id"
     t.string "name"
     t.string "gender"
+    t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["parent_id"], name: "index_children_on_parent_id"
