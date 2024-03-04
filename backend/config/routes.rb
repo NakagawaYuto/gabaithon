@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   resources :elderly_people
   resources :parents
+  resources :children
 end
