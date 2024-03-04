@@ -34,7 +34,7 @@ const MicButton = () => {
       <button className='mic-button' onClick={() => setMessage(ListeningControl(isPushed))}>
         <MicIcon />
       </button>
-      <p>{transcript}</p>
+      {/* <p>{transcript}</p> */}
     </div>
   );
 };
