@@ -29,6 +29,7 @@ function MessageInput({ onSendMessage }) {
   const handleIsMicOn = (value) => {
     if (value){
       setcurrentMessage(message)
+      resetTranscript()
     } else {
       setMessage(currentMessage + transcript)
       resetTranscript()
