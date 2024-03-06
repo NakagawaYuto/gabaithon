@@ -8,8 +8,6 @@ import {
   Button
 } from '@mui/material';
 
-
-
 const Home = () => {
   const navigate = useNavigate();
 
