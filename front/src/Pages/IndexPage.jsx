@@ -8,8 +8,6 @@ import {
   Button
 } from '@mui/material';
 
-import MicButton from '../components/MicButton'
-
 const Home = () => {
   const navigate = useNavigate();
 
@@ -63,7 +61,6 @@ const Home = () => {
         >ほごしゃ</Button>
         </Grid>
       </Grid>
-      <MicButton></MicButton>
     </>
   );
 };
