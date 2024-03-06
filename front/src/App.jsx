@@ -34,11 +34,12 @@ function App() {
         <Route path="/" element={<IndexPage/>} />
         <Route 
           path="/login-p/" 
-          element={
-            <HogosyaLogin showFlashAlert={showFlashAlert}/>
-          } 
+          element={<HogosyaLogin showFlashAlert={showFlashAlert}/>} 
         />
-        <Route path="/login-g" element={<JijiBabaLogin/>} />
+        <Route 
+          path="/login-g" 
+          element={<JijiBabaLogin showFlashAlert={showFlashAlert}/>} 
+        />
         <Route path="home-p" element={<HogosyaHome />} />
         <Route path="home-g" element={<JijiBabaHome />} />
         <Route path="/chat/:id" element={<ChatPage />} />

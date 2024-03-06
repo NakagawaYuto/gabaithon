@@ -1,81 +1,66 @@
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActionArea from '@mui/material/CardActionArea';
+import { useNavigate } from 'react-router-dom';
 import * as React from 'react';
 
-import {
-  ListItem,
-  ListItemAvatar,
-  ListItemButton,
-  ListItemText,
-  IconButton,
-  Avatar,
-} from '@mui/material';
+const ChildCard = ({ ChildList }) => {
 
-import PersonIcon from '@mui/icons-material/Person';
+  React.useEffect(() => {
+    console.log(ChildList);
+  },  [ChildList]
+  );
 
 
-const ChildCard = ({
-  index,
-  value,
-  handleSelect,
-  selectedIndex,
-  handleListClick,
-}) => {
+
+  const navigate = useNavigate();
+  var Cards = [];
+  for (let i = 0; i < ChildList.length; i++) {
+    const children = ChildList[i]; // 保護者1人当たりの子供全員
+    const children_parent_id = children[0].parent_id
+    const num_of_child = "子供の人数: "+String(children.length)
+    let child_age_string = "";  // "2, 3"のように子供全員の年齢を表示する
+    let child_gender_string = ""  // "male, female"のように子供全員の性別を表示する
+    for (let j = 0; j < children.length; j++) {
+      child_age_string += String(children[j].age)+", ";
+      child_gender_string += String(children[j].gender)+", ";
+    }
+    Cards.push(
+      <Grid item key={children_parent_id}>
+        <Card 
+          sx={{ width: '50vw' }} 
+          elevation={4} 
+          style={{
+            margin: 10,
+          }}
+        >
+          <CardActionArea onClick={() => { navigate('/chat/'+String(children_parent_id));}}>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                { num_of_child }
+              </Typography>
+              <Typography gutterBottom variant="h5" component="div">
+                { child_age_string }
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                { child_gender_string }
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      </Grid>
+    );
+  }
   return (
-  <>
-    <ListItem
-      key={index}
-      style={{
-        width: '90%',
-      }}
-    >
-      <ListItemAvatar>
-        <IconButton onClick={(e)=>handleSelect(e, index)}>
-          {index === selectedIndex ? (
-            <Avatar sx={{ bgcolor: '#d1abde' }}>
-              <PersonIcon style={{ color: 'white' }} />
-            </Avatar>
-          ) : (
-            <Avatar>
-              <PersonIcon />
-            </Avatar>
-          )}
-        </IconButton>
-      </ListItemAvatar>
-      <ListItemButton
-        onClick={(event) => {
-          handleListClick(event, index);
-        }}
-        disableRipple
-        style={
-          index === selectedIndex
-            ? {
-                '&:hover': {
-                  backgroundColor: 'transparent',
-                },
-              }
-            : {
-                '&:hover': {
-                  borderRadius: '15px',
-                  backgroundColor: 'rgba(171, 184, 222, 0.5)',
-                },
-              }
-        }
-      >
-        <ListItemText
-          primary={value.name}
-        />
-        <ListItemText
-          primary={value.age}
-        />
-        <ListItemText
-          primary={value.sex}
-        />
-        <ListItemText
-          primary={value.address}
-        />
-      </ListItemButton>
-    </ListItem>
-  </>
+    <>
+      <Grid container alignItems='center' justify='center' direction="column">
+        { Cards }
+      </Grid>
+    </>
   )
 }
+
 
 export default ChildCard;
