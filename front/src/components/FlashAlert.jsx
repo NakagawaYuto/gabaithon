@@ -41,7 +41,8 @@ const FlashAlert = ({
           left: '50%',
           transform: 'translate(-50%, -' + topPosition + ')',
           margin: '0px',
-          width: '80%'
+          width: '80%',
+          zIndex: 999,
         }}
       >
         {message}
