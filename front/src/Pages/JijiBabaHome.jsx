@@ -2,85 +2,44 @@ import * as React from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
-import {
-  List,
-  Collapse,
-} from '@mui/material';
-import { TransitionGroup } from 'react-transition-group';
 
 import ChildCard from '../components/ChildrenCard';
 
 
 const JijiBabaHome = () => {
-  const baseURL = "http://localhost:3000/elderly_people/"
+  const baseURL = "http://localhost:3000/";
   const navigate = useNavigate();
-  const [childLists, setChildLists] = React.useState([]);
-  const [selectedIndex, setSelectedIndex] = React.useState(-1);
+  const [childList, setChildList] = React.useState([]); // childListを状態として管理する
 
-  const handleSelect = (event, index) => {
-    setSelectedIndex(index);
-  }
+  const elderly_person_id = 1;
+  const parent_id_list = [];
 
-  const handleListClick = (event, index) => {
-    navigate('/chat/'+String(index));
-  }
+  React.useEffect(() => {
+    axios.get(baseURL + 'evaluations').then((response) => {
+      const filteredData = response.data.filter(evaluation => evaluation.elderly_person_id === elderly_person_id);
+      for (let i = 0; i < filteredData.length; i++) {
+        parent_id_list.push(filteredData[i].parent_id);
+      }
+      console.log(parent_id_list);
 
-  // React.useEffect(() => {
-  //   setChildLists([
-  //     {
-  //       'name':'あかさん', 
-  //       'address': '住所', 
-  //       'birthday': '2000/9/21', 
-  //       'age': '10',
-  //       'sex': '男', 
-  //     },
-  //     {
-  //       'name':'あかんボウ', 
-  //       'address': '住所', 
-  //       'birthday': '2000/9/21', 
-  //       'age': '10',
-  //       'sex': '男', 
-  //     },
-  //     {
-  //       'name':'あかちゃん', 
-  //       'address': '住所', 
-  //       'birthday': '2000/9/21', 
-  //       'age': '10',
-  //       'sex': '男', 
-  //     },
-  //   ]);
-  // }, []);
-
-  // 初回ロード時の処理を記述する.
-  React.useEffect(() => 
-    {
-      axios.get(baseURL).then((response) => {
-        setChildLists(response.data);
+      // 親のIDから子供のデータ取得
+      axios.get(baseURL + "children").then((response) => {
+        const allChildList = [];
+        for (let j = 0; j < parent_id_list.length; j++) {
+          const filteredData = response.data.filter(children => children.parent_id === parent_id_list[j]);
+          allChildList.push(filteredData);
+        }
+        console.log(allChildList);
+        setChildList(allChildList); // childListの更新
       });
-    }, []);
-  // if (!blogs) return null;
-
-  const generate = () => {
-    return childLists.map((value, index) => (
-      <Collapse key={index}>
-        <ChildCard 
-          index={index} 
-          value={value}
-          handleSelect={handleSelect}
-          selectedIndex={selectedIndex}
-          handleListClick={handleListClick}
-        />
-      </Collapse>
-    ))
-  }
+    });
+  }, []);
 
   return (
     <>
-      <List>
-        <TransitionGroup>{generate()}</TransitionGroup>
-      </List>
+      <ChildCard ChildList={childList}></ChildCard>
     </>
-  )
-}
+  );
+};
 
 export default JijiBabaHome;
