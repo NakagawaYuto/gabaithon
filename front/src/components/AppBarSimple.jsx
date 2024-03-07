@@ -20,7 +20,9 @@ const HeaderWithBackButton = () => {
         right: 0,
         backgroundColor: '#fef4f4',
         color: 'black',
-        elevation: 0
+        elevation: 0,
+        opacity: 0.5,
+        height: '50px',
       }}>
       <Toolbar>
         <IconButton edge="start" color="inherit" aria-label="back" onClick={handleBack}>

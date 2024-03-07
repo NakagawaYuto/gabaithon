@@ -3,7 +3,7 @@ import axios from "axios";
 
 import {
   Card, 
-  CardActions,
+  CardActionArea,
   Grid,
   CardContent,
   Typography,
@@ -45,8 +45,6 @@ const useElderlyEvaluations = (ElderlyPeople_ID) => {
   const totalEvaluation = EvaluationLists.reduce((acc, curr) => acc + curr.evaluation, 0);
   const averageEvaluation = totalEvaluation / EvaluationLists.length;
   
-  // console.log("EvaluationLists", EvaluationLists)
-  // console.log(averageEvaluation)
   return averageEvaluation.toFixed(2);
 }
 
@@ -74,9 +72,10 @@ const JijiBabaCard = ({
             margin: 10,
           }}
         >
-          <CardActions
+          <CardActionArea
             onClick={
-              (e) => { handleListClick(e, index) }}
+              (e) => { handleListClick(e, index) }
+            }
           >
             <Grid 
               container
@@ -125,7 +124,7 @@ const JijiBabaCard = ({
                 </CardContent>
               </Grid>
             </Grid>
-          </CardActions>
+          </CardActionArea>
         </Card>
       </Grid>
     </>
