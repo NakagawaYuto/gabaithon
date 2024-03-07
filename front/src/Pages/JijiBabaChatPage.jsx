@@ -12,7 +12,6 @@ import {
 
 import MessageInput from '../components/MessageInputBar';
 import TalkLog from '../components/TalkHistory';
-import MatchEndButton from '../components/MatchEndButton';
 
 const JijiBabaChatPage = () => {
   const params = useParams();
@@ -108,7 +107,6 @@ const JijiBabaChatPage = () => {
           <MessageInput onSendMessage={handleSendMessage}/>
         </Grid>
       </Grid>
-      <MatchEndButton/>
     </>
   )
 }
