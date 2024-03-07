@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 
 import BirthDate from '../components/SelectBirthday'; 
+import AppVarSimple from '../components/AppBarSimple';
 
 const Login = ({showFlashAlert}) => {
   const baseURL = "http://localhost:3000/elderly_people/"
@@ -22,11 +23,11 @@ const Login = ({showFlashAlert}) => {
   const gridMargin = '20px';
   const fontSize = '30px';
 
-  const [name, setName] = React.useState('');
-  const [address, setAddress] = React.useState('');
+  const [name, setName] = React.useState('はやお');
+  const [address, setAddress] = React.useState('佐賀市');
   const [date_of_birth, setDate_of_birth] = React.useState('1920-01-01');
-  const [gender, setGender] = React.useState('female');
-  const [self_introduction, setSelf_introduction] = React.useState('');
+  const [gender, setGender] = React.useState('male');
+  const [self_introduction, setSelf_introduction] = React.useState('よろしくお願いします！');
 
   const chekcValidate = () => {
     const cn = name !== '';
@@ -35,12 +36,6 @@ const Login = ({showFlashAlert}) => {
     const cg = gender !== '';
     const cs = self_introduction !== '';
     const all = cn&&ca&&cd&&cg&&cs;
-    console.log(date_of_birth);
-    console.log(gender);
-    console.log(name);
-    console.log(address);
-    console.log(self_introduction);
-    console.log(all);
     return all;
   }
 
@@ -67,12 +62,13 @@ const Login = ({showFlashAlert}) => {
 
   return (
     <>
+      <AppVarSimple/>
       <Grid 
         container
         direction="row"
         justifyContent="center"
         alignItems="center"
-        style={{width:'100%'}}
+        style={{width:'100%',marginTop: '70px'}}
       >
         {/* お名前 */}
         <Grid
@@ -92,6 +88,7 @@ const Login = ({showFlashAlert}) => {
               },
             }}
             onChange={(e)=>{setName(e.target.value)}}
+            value={name}
           />
         </Grid>
         {/* おところ */}
@@ -112,6 +109,7 @@ const Login = ({showFlashAlert}) => {
               },
             }}
             onChange={(e)=>{setAddress(e.target.value)}}
+            value={address}
           />
         </Grid>
         {/* うまれたひ */}
@@ -141,19 +139,11 @@ const Login = ({showFlashAlert}) => {
           }}
         >
           <FormControl>
-          {/* <Typography 
-            component="p"
-            style = {{
-              fontSize: fontSize,
-            }}
-          >
-            性別
-          </Typography> */}
             <RadioGroup
               row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="row-radio-buttons-group"
-              defaultValue="female"
+              defaultValue="male"
               onChange={(e) => setGender(e.target.value)}
               style = {{
                 fontSize: fontSize,
@@ -200,6 +190,7 @@ const Login = ({showFlashAlert}) => {
                 fontSize: fontSize,
               },
             }}
+            value={self_introduction}
             onChange={(e)=>{setSelf_introduction(e.target.value)}}
           />
         </Grid>

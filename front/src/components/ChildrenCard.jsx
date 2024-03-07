@@ -90,7 +90,13 @@ const ChildCard = ({ ChildList }) => {
   }
   return (
     <>
-      <Grid container alignItems='center' justify='center' direction="column">
+      <Grid 
+        container 
+        alignItems='center' 
+        justify='center' 
+        direction="column"
+        sx={{marginTop: '70px'}}
+      >
         { Cards }
       </Grid>
     </>

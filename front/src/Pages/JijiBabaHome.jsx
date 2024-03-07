@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 import ChildCard from '../components/ChildrenCard';
-
+import HeaderWithBackButton from '../components/AppBarSimple';
 
 const JijiBabaHome = () => {
   const baseURL = "http://localhost:3000/";
@@ -37,6 +37,7 @@ const JijiBabaHome = () => {
 
   return (
     <>
+      <HeaderWithBackButton></HeaderWithBackButton>
       <ChildCard ChildList={childList}></ChildCard>
     </>
   );
