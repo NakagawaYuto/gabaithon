@@ -66,6 +66,7 @@ const Login = ({showFlashAlert}) => {
           <Card
             sx={{
               width:'100%',
+              backgroundColor: 'rgba(255, 255, 255, .7)',
             }}
           >
             <Typography component="h1" variant="h5" sx={{marginTop:'10px'}}>

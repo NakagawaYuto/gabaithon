@@ -11,6 +11,7 @@ import {
   Radio,
   FormControlLabel,
   FormControl,
+  Card,
 } from '@mui/material';
 
 import BirthDate from '../components/SelectBirthday'; 
@@ -63,147 +64,172 @@ const Login = ({showFlashAlert}) => {
   return (
     <>
       <AppVarSimple/>
-      <Grid 
+      <Grid
         container
-        direction="row"
+        direction="column"
         justifyContent="center"
         alignItems="center"
-        style={{width:'100%',marginTop: '70px'}}
+        style={{
+          width:'100%',
+          height: '80vh',
+          marginTop: '70px'
+        }}
       >
-        {/* お名前 */}
-        <Grid
-          item
-          style={{
-            width: gridWidth, 
-            margin: gridMargin,
-          }}
-        >
-          <TextField 
-            id="outlined-basic-size-normal" 
-            label="お名前" 
-            variant="outlined"
-            InputProps={{
-              style: {
-                fontSize: fontSize,
-              },
-            }}
-            onChange={(e)=>{setName(e.target.value)}}
-            value={name}
-          />
-        </Grid>
-        {/* おところ */}
-        <Grid
-          item
-          style={{
-            width: gridWidth, 
-            margin: gridMargin,
-          }}
-        >
-          <TextField 
-            id="outlined-basic-size-normal" 
-            label="住所" 
-            variant="outlined" 
-            InputProps={{
-              style: {
-                fontSize: fontSize,
-              },
-            }}
-            onChange={(e)=>{setAddress(e.target.value)}}
-            value={address}
-          />
-        </Grid>
-        {/* うまれたひ */}
-        <Grid
-          item
-          style={{
-            width: gridWidth, 
-            margin: gridMargin,
-          }}
-        >
-          <Typography 
-            component="p"
-            style = {{
-              fontSize: fontSize,
+        <Grid item>
+          <Card
+            sx={{
+              width:'100%',
+              backgroundColor: 'rgba(255, 255, 255, .7)',
             }}
           >
-            生年月日
-          </Typography>
-          <BirthDate setBirth={setDate_of_birth}></BirthDate>
-        </Grid>
-        {/* 性別 */}
-        <Grid
-          item
-          style={{
-            width:gridWidth, 
-            margin: gridMargin,
-          }}
-        >
-          <FormControl>
-            <RadioGroup
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="row-radio-buttons-group"
-              defaultValue="male"
-              onChange={(e) => setGender(e.target.value)}
-              style = {{
-                fontSize: fontSize,
-              }}
+            <Typography component="h1" variant="h5" sx={{marginTop:'10px'}}>
+              募集
+            </Typography>
+            <Grid 
+              container
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+              style={{width:'100%'}}
             >
-              <FormControlLabel 
-                value="female" 
-                control={<Radio />} 
-                label="女性"
-                sx={{
-                  '& .MuiSvgIcon-root': {
-                    fontSize: fontSize,
-                  },
+              {/* お名前 */}
+              <Grid
+                item
+                style={{
+                  width: gridWidth, 
+                  margin: gridMargin,
                 }}
-              />
-              <FormControlLabel
-                value="male" 
-                control={<Radio />} 
-                label="男性" 
-                sx={{
-                  '& .MuiSvgIcon-root': {
-                    fontSize: fontSize,
-                  },
+              >
+                <TextField 
+                  id="outlined-basic-size-normal" 
+                  label="お名前" 
+                  variant="outlined"
+                  InputProps={{
+                    style: {
+                      fontSize: fontSize,
+                    },
+                  }}
+                  onChange={(e)=>{setName(e.target.value)}}
+                  value={name}
+                />
+              </Grid>
+              {/* おところ */}
+              <Grid
+                item
+                style={{
+                  width: gridWidth, 
+                  margin: gridMargin,
                 }}
-              />
-            </RadioGroup>
-          </FormControl>
-        </Grid>
-        {/* 自己紹介 */}
-        <Grid
-          item
-          style={{
-            width:gridWidth, 
-            margin: gridMargin,
-          }}
-        >
-          <TextField
-            id="outlined-multiline-static"
-            label="自己紹介"
-            multiline
-            rows={5}
-            InputProps={{
-              style: {
+              >
+                <TextField 
+                  id="outlined-basic-size-normal" 
+                  label="住所" 
+                  variant="outlined" 
+                  InputProps={{
+                    style: {
+                      fontSize: fontSize,
+                    },
+                  }}
+                  onChange={(e)=>{setAddress(e.target.value)}}
+                  value={address}
+                />
+              </Grid>
+              {/* うまれたひ */}
+              <Grid
+                item
+                style={{
+                  width: gridWidth, 
+                  margin: gridMargin,
+                }}
+              >
+                <Typography 
+                  component="p"
+                  style = {{
+                    fontSize: fontSize,
+                  }}
+                >
+                  生年月日
+                </Typography>
+                <BirthDate setBirth={setDate_of_birth}></BirthDate>
+              </Grid>
+              {/* 性別 */}
+              <Grid
+                item
+                style={{
+                  width:gridWidth, 
+                  margin: gridMargin,
+                }}
+              >
+                <FormControl>
+                  <RadioGroup
+                    row
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="row-radio-buttons-group"
+                    defaultValue="male"
+                    onChange={(e) => setGender(e.target.value)}
+                    style = {{
+                      fontSize: fontSize,
+                    }}
+                  >
+                    <FormControlLabel 
+                      value="female" 
+                      control={<Radio />} 
+                      label="女性"
+                      sx={{
+                        '& .MuiSvgIcon-root': {
+                          fontSize: fontSize,
+                        },
+                      }}
+                    />
+                    <FormControlLabel
+                      value="male" 
+                      control={<Radio />} 
+                      label="男性" 
+                      sx={{
+                        '& .MuiSvgIcon-root': {
+                          fontSize: fontSize,
+                        },
+                      }}
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </Grid>
+              {/* 自己紹介 */}
+              <Grid
+                item
+                style={{
+                  width:gridWidth, 
+                  margin: gridMargin,
+                }}
+              >
+                <TextField
+                  id="outlined-multiline-static"
+                  label="自己紹介"
+                  multiline
+                  rows={5}
+                  InputProps={{
+                    style: {
+                      fontSize: fontSize,
+                    },
+                  }}
+                  value={self_introduction}
+                  onChange={(e)=>{setSelf_introduction(e.target.value)}}
+                />
+              </Grid>
+            </Grid>
+            <Button
+              variant="contained"
+              style={{
                 fontSize: fontSize,
-              },
-            }}
-            value={self_introduction}
-            onChange={(e)=>{setSelf_introduction(e.target.value)}}
-          />
+                backgroundColor: '#C7D6F4',
+                color: 'black',
+                marginBottom: '20px',
+              }}
+              onClick={() => { DataRegistration() }}
+            >登録</Button>
+          </Card>
         </Grid>
       </Grid>
-      <Button
-        variant="contained"
-        style={{
-          fontSize: fontSize,
-          backgroundColor: '#C7D6F4',
-          color: 'black',
-        }}
-        onClick={() => { DataRegistration() }}
-      >とうろく</Button>
     </>
   )
 }
