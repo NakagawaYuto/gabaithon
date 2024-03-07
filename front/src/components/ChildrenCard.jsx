@@ -43,58 +43,43 @@ const ChildCard = ({ ChildList }) => {
           }}
         >
           <CardActionArea onClick={() => { navigate('/chat-g/'+String(children_parent_id));}}>
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                { num_of_child }
-              </Typography>
-              <Typography gutterBottom variant="h5" component="div">
-                { child_age_string }
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                { child_gender_string }
-              </Typography>
-            </CardContent>
-          <CardActionArea 
-            onClick={
-              () => { navigate('/chat/'+String(children_parent_id));}}
-          >
-          <Grid 
-            container
-            direction="row"
-            justifyContent="space-around"
-            alignItems="center"
-          >
-            <Grid item>
-              <IconButton>
-                <Avatar 
-                  sx={{ 
-                    bgcolor: '#d1abde',
-                    width: '80px',
-                    height: '80px'
-                  }} 
-                  src="/icons/1.jpeg">
-                  <PersonIcon 
-                    style={{ 
-                      color: 'white',
+            <Grid
+              container
+              direction="row"
+              justifyContent="space-around"
+              alignItems="center"
+            >
+              <Grid item>
+                <IconButton>
+                  <Avatar 
+                    sx={{ 
+                      bgcolor: '#d1abde',
+                      width: '80px',
+                      height: '80px'
                     }} 
-                  />
-                </Avatar>
-              </IconButton>
+                    src="/icons/1.jpeg">
+                    <PersonIcon 
+                      style={{ 
+                        color: 'white',
+                      }} 
+                    />
+                  </Avatar>
+                </IconButton>
+              </Grid>
+              <Grid item>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    { num_of_child }
+                  </Typography>
+                  <Typography gutterBottom variant="h5" component="div">
+                    { child_age_string }
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    { child_gender_string }
+                  </Typography>
+                </CardContent>
+              </Grid>
             </Grid>
-            <Grid item>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  { num_of_child }
-                </Typography>
-                <Typography gutterBottom variant="h5" component="div">
-                  { child_age_string }
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  { child_gender_string }
-                </Typography>
-              </CardContent>
-            </Grid>
-          </Grid>
           </CardActionArea>
         </Card>
       </Grid>
