@@ -19,9 +19,6 @@ const HogosyaChatPage = () => {
 
   React.useEffect(() => {
     //ここでtalklogをDBから取得
-    setTalkLog([
-      {who:'elder', message_text: 'こんにちは'},
-    ])
     handleGetMessage()
   }, [])
 
@@ -70,7 +67,7 @@ const HogosyaChatPage = () => {
 
   return(
     <>
-      このChatPageは{params.id}番のページです．
+      {/* このChatPageは{params.id}番のページです． */}
       <Grid 
         container
         direction="row"
