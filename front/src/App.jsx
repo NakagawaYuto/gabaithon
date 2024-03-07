@@ -15,6 +15,7 @@ import JijiBabaLogin from './pages/JijiBabaLogin';
 import ChatPage from './pages/ChatPage';
 import NotFound from './pages/NotFoundPage';
 import FlashAlert from "./components/FlashAlert";
+import Sakura from './components/LeafDesign';
 
 function App() {
   const [severity, setSeverity] = React.useState("error");
@@ -30,6 +31,7 @@ function App() {
       <AppBar position='sticky' style={{ color: "#e0f2f1", backgroundColor: "#3c3c3c" }} >
       </AppBar>
       <FlashAlert severity={severity} message={message} createdAt={nowDate} />
+      <Sakura></Sakura>
       <Routes>
         <Route path="/" element={<IndexPage/>} />
         <Route 

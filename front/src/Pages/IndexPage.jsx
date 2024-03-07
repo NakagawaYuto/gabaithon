@@ -36,6 +36,7 @@ const Home = () => {
               height: '100%',
               color: 'black',
               fontSize: '30px',
+              borderRadius:'16px' 
             }}
             onClick={() => { navigate('/login-g')}}
           >じぃじ<br/>ばぁば</Button>
@@ -56,6 +57,7 @@ const Home = () => {
             height: '100%',
             color: 'black',
             fontSize: '30px',
+            borderRadius:'16px' 
           }}
           onClick={() => { navigate('/login-p')}}
         >ほごしゃ</Button>
