@@ -8,6 +8,9 @@ import {
   Button
 } from '@mui/material';
 
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+
 const Home = () => {
   const navigate = useNavigate();
 
@@ -18,45 +21,50 @@ const Home = () => {
         direction="row"
         justifyContent="center"
         alignItems="center"
-        style={{width:'100%', height: '100vh'}}
+        css={css`
+          width: 100%;
+          height: 100vh;
+        `}
       >
         <Grid 
           item 
-          style={{
-            width:'45%', 
-            height: '150px',
-            margin: '3px',
-          }}
+          css={css`
+            width: 45%;
+            height: 150px;
+            margin: 3px;
+          `}
         >
           <Button 
-            variant="contained"
-            style={{
-              backgroundColor: '#C7D6F4', 
-              width: '100%',
-              height: '100%',
-              color: 'black',
-              fontSize: '30px',
-            }}
+            variant="outlined"
+            css={css`
+              background-color: #c7d6f4;
+              width: 100%;
+              height: 100%;
+              color: black;
+              font-size: 30px;
+              border-radius: 16px;
+            `}
             onClick={() => { navigate('/login-g')}}
           >じぃじ<br/>ばぁば</Button>
         </Grid>
         <Grid 
           item
-          style={{
-            width:'45%', 
-            height: '150px',
-            margin: '3px',
-          }}
+          css={css`
+            width: 45%;
+            height: 150px;
+            margin: 3px;
+          `}
         >
         <Button 
-          variant="contained"
-          style={{
-            backgroundColor:'#EED1A6', 
-            width: '100%',
-            height: '100%',
-            color: 'black',
-            fontSize: '30px',
-          }}
+          variant="outlined"
+          css={css`
+            background-color: #EED1A6;
+            width: 100%;
+            height: 100%;
+            color: black;
+            font-size: 30px;
+            border-radius: 16px;
+          `}
           onClick={() => { navigate('/login-p')}}
         >ほごしゃ</Button>
         </Grid>

@@ -17,6 +17,8 @@ import NotFound from './pages/NotFoundPage';
 import FlashAlert from "./components/FlashAlert";
 import HogosyaChatPage from './pages/HogosyaChatPage';
 import JijiBabaChatPage from './pages/JijiBabaChatPage';
+import Sakura from './components/LeafDesign';
+import SimpleBottomNavigation from './components/BottomNavBar';
 
 function App() {
   const [severity, setSeverity] = React.useState("error");
@@ -32,6 +34,8 @@ function App() {
       <AppBar position='sticky' style={{ color: "#e0f2f1", backgroundColor: "#3c3c3c" }} >
       </AppBar>
       <FlashAlert severity={severity} message={message} createdAt={nowDate} />
+      <Sakura></Sakura>
+      <SimpleBottomNavigation/>
       <Routes>
         <Route path="/" element={<IndexPage/>} />
         <Route 
