@@ -119,6 +119,7 @@ const JijiBabaCard = ({
                       sx={{
                         fontSize: '1.2rem'
                       }}
+                      disabled
                     />
                   </Typography>
                 </CardContent>
