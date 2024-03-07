@@ -33,8 +33,20 @@ const ChatPage = () => {
 
   const handleSendMessage = async (message) => {
     const baseURL = 'http://localhost:3000/';
+    
     try {
       // axios post
+      await axios.post(baseURL, {
+        chats: {
+          eldery_person_id: 1,
+          parent_id: 1,
+          speaker: "parent",
+          message_content: "test"
+        }
+      })
+      .then((e)=> {
+        console.log(e)
+      })
     }
     catch (error) {
       console.log(error);
