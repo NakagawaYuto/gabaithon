@@ -15,8 +15,9 @@ const lineContainer = css`
   overflow: hidden;
   //max-width: 400px;
   margin: 50px;
+  margin-left: -10px;
   font-size: 80%;
-  width: 80%;
+  width: 100%;
 `;
 
 const lineContents = css`
@@ -53,12 +54,14 @@ const lineRight = css`
 `;
 
 const lineText = css`
-  margin: 0;
+  margin: 3px;
   position: relative;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 1px;
+  padding-bottom: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
   border-radius: 20px;
+  font-size: 2.5rem;
 `;
 
 const elderText = css`
@@ -73,6 +76,7 @@ const elderText = css`
     left: -10px;
     top: 10px;
     margin-top: -4px;
+    margin-top: 25px;
     border-right: 15px solid ${elderTextColor};
     border-top: 7.5px solid transparent;
     border-bottom: 7.5px solid transparent;
@@ -90,7 +94,7 @@ const myText = css`
     height: 0;
     right: -10px;
     top: 10px;
-    margin-top: -4px;
+    margin-top: 25px;
     margin-right: 0px;
     border-left: 15px solid ${myTextColor};
     border-top: 7.5px solid transparent;
