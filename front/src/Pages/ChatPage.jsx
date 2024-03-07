@@ -36,16 +36,17 @@ const ChatPage = () => {
     
     try {
       // axios post
-      await axios.post(baseURL, {
+      await axios.post(baseURL + 'chats', {
         chats: {
           eldery_person_id: 1,
           parent_id: 1,
           speaker: "parent",
-          message_content: "test"
+          message_content: message
         }
       })
       .then((e)=> {
         console.log(e)
+        setTalkLog([...talklog, {who: 'parent', message_text: message}])
       })
     }
     catch (error) {
@@ -57,6 +58,7 @@ const ChatPage = () => {
     const baseURL = 'http://localhost:3000/'
     try {
       //axios get
+      
     }
     catch (error) {
       console.log(error);
