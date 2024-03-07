@@ -19,6 +19,7 @@ const JijiBabaChatPage = () => {
   const cable = React.useMemo(() => ActionCable.createConsumer('ws://localhost:3000/cable'), []);
   const [subscription, setSubscription] = React.useState();
   const [receivedMessage, setReceivedMessage] = React.useState("");
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     //ここでtalklogをDBから取得
@@ -34,8 +35,15 @@ const JijiBabaChatPage = () => {
 
   React.useEffect(() => {
     if (!receivedMessage) return;
-
-    handleGetMessage()
+    console.log(receivedMessage.command)
+    if (receivedMessage.command === "reload"){
+      handleGetMessage()
+    } else if (receivedMessage.command === "room_end"){
+      navigate('/home-g/');
+    } else {
+      return;
+    }
+    
   }, [receivedMessage]);
 
   const handleSendMessage = async (message) => {
@@ -53,7 +61,7 @@ const JijiBabaChatPage = () => {
       })
       .then((e)=> {
         console.log(e)
-        subscription?.perform('room_channel', { body: "test" });
+        subscription?.perform('room_reload');
         setTalkLog([...talklog, {who: 'elderly_person', message_text: message}])
       })
     }
