@@ -8,7 +8,11 @@ class RoomChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def room_channel(data)
-    ActionCable.server.broadcast('room_channel', {message: data['body']})
+  def room_reload
+    ActionCable.server.broadcast('room_channel', {command: "reload"})
+  end
+
+  def room_end
+    ActionCable.server.broadcast('room_channel', {command: "room_end"})
   end
 end

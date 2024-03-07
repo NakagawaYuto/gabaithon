@@ -1,5 +1,7 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import ActionCable from 'actioncable';
 import {
   Button,
   Dialog,
@@ -15,8 +17,18 @@ import {
 const MatchEndButton = () => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(0);
+  const navigate = useNavigate();
+  const cable = React.useMemo(() => ActionCable.createConsumer('ws://localhost:3000/cable'), []);
+  const [subscription, setSubscription] = React.useState();
   
   const baseURL = "http://localhost:3000/"
+
+  React.useEffect(() => {
+    const sub = cable.subscriptions.create({ channel: "RoomChannel" }, {
+      received: (msg) => null
+    });
+    setSubscription(sub);
+  }, [cable])
 
   const sendEvaluation = (elderly_person_id, parent_id) => {
     console.log("elderly_person_id : "+String(elderly_person_id));
@@ -28,6 +40,9 @@ const MatchEndButton = () => {
         parent_id : parent_id,
         evaluation : value,  // ここは入力された値
       }
+    }).then((e) => {
+      navigate('/home-p/');
+      subscription?.perform('room_end');
     })
   }
 

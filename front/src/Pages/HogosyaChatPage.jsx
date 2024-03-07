@@ -54,7 +54,7 @@ const HogosyaChatPage = () => {
       })
       .then((e)=> {
         console.log(e)
-        subscription?.perform('room_channel', { body: "test" });
+        subscription?.perform('room_reload');
         setTalkLog([...talklog, {who: 'parent', message_text: message}])
       })
     }
