@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
 import {
-  List,
+  Grid,
   Collapse,
 } from '@mui/material';
 import { TransitionGroup } from 'react-transition-group';
@@ -51,9 +51,9 @@ const HogosyaHome = () => {
 
   return (
     <>
-      <List>
+      <Grid container alignItems='center' justify='center' direction="column">
         <TransitionGroup>{generate()}</TransitionGroup>
-      </List>
+      </Grid>
     </>
   )
 }

@@ -62,70 +62,72 @@ const JijiBabaCard = ({
 
   return (
     <>
-      <Card
-        key={index}
-        sx={{ 
-          width: '70vw',
-          borderRadius:'16px' 
-        }} 
-        elevation={4} 
-        style={{
-          margin: 10,
-        }}
-      >
-        <CardActions
-          onClick={
-            (e) => { handleListClick(e, index) }}
+      <Grid item>
+        <Card
+          key={index}
+          sx={{ 
+            width: '70vw',
+            borderRadius:'16px' 
+          }} 
+          elevation={4} 
+          style={{
+            margin: 10,
+          }}
         >
-          <Grid 
-            container
-            direction="row"
-            justifyContent="space-around"
-            alignItems="center"
+          <CardActions
+            onClick={
+              (e) => { handleListClick(e, index) }}
           >
-            <Grid item>
-              <IconButton>
-                <Avatar 
-                  sx={{ 
-                    bgcolor: '#d1abde',
-                    width: '80px',
-                    height: '80px'
-                  }} 
-                  src="/icons/1.jpeg">
-                  <PersonIcon 
-                    style={{ 
-                      color: 'white',
+            <Grid 
+              container
+              direction="row"
+              justifyContent="space-around"
+              alignItems="center"
+            >
+              <Grid item>
+                <IconButton>
+                  <Avatar 
+                    sx={{ 
+                      bgcolor: '#d1abde',
+                      width: '80px',
+                      height: '80px'
                     }} 
-                  />
-                </Avatar>
-              </IconButton>
+                    src="/icons/1.jpeg">
+                    <PersonIcon 
+                      style={{ 
+                        color: 'white',
+                      }} 
+                    />
+                  </Avatar>
+                </IconButton>
+              </Grid>
+              <Grid item>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    名前：{ value.name }
+                  </Typography>
+                  <Typography gutterBottom variant="body2" component="text.secondary">
+                    年齢：{ `${age}` } 歳
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    性別: { value.gender }
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {/* { `${EvaluationList}` } */}
+                    <Rating
+                      name="simple-controlled"
+                      value={EvaluationList}
+                      sx={{
+                        fontSize: '1.2rem'
+                      }}
+                    />
+                  </Typography>
+                </CardContent>
+              </Grid>
             </Grid>
-            <Grid item>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  名前：{ value.name }
-                </Typography>
-                <Typography gutterBottom variant="body2" component="text.secondary">
-                  年齢：{ `${age}` } 歳
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  性別: { value.gender }
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {/* { `${EvaluationList}` } */}
-                  <Rating
-                    name="simple-controlled"
-                    value={EvaluationList}
-                    sx={{
-                      fontSize: '1.2rem'
-                    }}
-                  />
-                </Typography>
-              </CardContent>
-            </Grid>
-          </Grid>
-        </CardActions>
-      </Card>
+          </CardActions>
+        </Card>
+      </Grid>
     </>
   )
 }
