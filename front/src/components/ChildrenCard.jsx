@@ -3,6 +3,9 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActionArea from '@mui/material/CardActionArea';
+import IconButton from '@mui/material/IconButton';
+import Avatar from '@mui/material/Avatar';
+import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
 import * as React from 'react';
 
@@ -30,24 +33,56 @@ const ChildCard = ({ ChildList }) => {
     Cards.push(
       <Grid item key={children_parent_id}>
         <Card 
-          sx={{ width: '50vw' }} 
+          sx={{ 
+            width: '70vw',
+            borderRadius:'16px' 
+          }} 
           elevation={4} 
           style={{
             margin: 10,
           }}
         >
-          <CardActionArea onClick={() => { navigate('/chat/'+String(children_parent_id));}}>
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                { num_of_child }
-              </Typography>
-              <Typography gutterBottom variant="h5" component="div">
-                { child_age_string }
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                { child_gender_string }
-              </Typography>
-            </CardContent>
+          <CardActionArea 
+            onClick={
+              () => { navigate('/chat/'+String(children_parent_id));}}
+          >
+          <Grid 
+            container
+            direction="row"
+            justifyContent="space-around"
+            alignItems="center"
+          >
+            <Grid item>
+              <IconButton>
+                <Avatar 
+                  sx={{ 
+                    bgcolor: '#d1abde',
+                    width: '80px',
+                    height: '80px'
+                  }} 
+                  src="/icons/1.jpeg">
+                  <PersonIcon 
+                    style={{ 
+                      color: 'white',
+                    }} 
+                  />
+                </Avatar>
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  { num_of_child }
+                </Typography>
+                <Typography gutterBottom variant="h5" component="div">
+                  { child_age_string }
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  { child_gender_string }
+                </Typography>
+              </CardContent>
+            </Grid>
+          </Grid>
           </CardActionArea>
         </Card>
       </Grid>

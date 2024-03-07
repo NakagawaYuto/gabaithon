@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
 import {
-  ListItem,
-  ListItemAvatar,
-  ListItemButton,
-  ListItemText,
+  Card, 
+  CardActions,
+  Grid,
+  CardContent,
+  Typography,
   IconButton,
   Avatar,
+  Rating,
 } from '@mui/material';
 
 import PersonIcon from '@mui/icons-material/Person';
@@ -60,59 +62,70 @@ const JijiBabaCard = ({
 
   return (
     <>
-      <ListItem
+      <Card
         key={index}
+        sx={{ 
+          width: '70vw',
+          borderRadius:'16px' 
+        }} 
+        elevation={4} 
         style={{
-          width: '90%',
+          margin: 10,
         }}
       >
-        <ListItemAvatar>
-          <IconButton onClick={(e) => handleSelect(e, index)}>
-            {index === selectedIndex ? (
-              <Avatar sx={{ bgcolor: '#d1abde' }} src="/icons/1.jpeg">
-                <PersonIcon style={{ color: 'white' }} />
-              </Avatar>
-            ) : (
-              <Avatar src="/icons/2.png">
-                <PersonIcon />
-              </Avatar>
-            )}
-          </IconButton>
-        </ListItemAvatar>
-        <ListItemButton
-          onClick={(event) => {
-            handleListClick(event, index);
-          }}
-          disableRipple
-          style={
-            index === selectedIndex
-              ? {
-                '&:hover': {
-                  backgroundColor: 'transparent',
-                },
-              }
-              : {
-                '&:hover': {
-                  borderRadius: '15px',
-                  backgroundColor: 'rgba(171, 184, 222, 0.5)',
-                },
-              }
-          }
+        <CardActions
+          onClick={
+            (e) => { handleListClick(e, index) }}
         >
-          <ListItemText
-            primary={value.name}
-          />
-          <ListItemText
-            primary={`${age}`}
-          />
-          <ListItemText
-            primary={value.sex}
-          />
-          <ListItemText
-            primary={`${EvaluationList}`}
-          />
-        </ListItemButton>
-      </ListItem>
+          <Grid 
+            container
+            direction="row"
+            justifyContent="space-around"
+            alignItems="center"
+          >
+            <Grid item>
+              <IconButton>
+                <Avatar 
+                  sx={{ 
+                    bgcolor: '#d1abde',
+                    width: '80px',
+                    height: '80px'
+                  }} 
+                  src="/icons/1.jpeg">
+                  <PersonIcon 
+                    style={{ 
+                      color: 'white',
+                    }} 
+                  />
+                </Avatar>
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  名前：{ value.name }
+                </Typography>
+                <Typography gutterBottom variant="body2" component="text.secondary">
+                  年齢：{ `${age}` } 歳
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  性別: { value.gender }
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {/* { `${EvaluationList}` } */}
+                  <Rating
+                    name="simple-controlled"
+                    value={EvaluationList}
+                    sx={{
+                      fontSize: '1.2rem'
+                    }}
+                  />
+                </Typography>
+              </CardContent>
+            </Grid>
+          </Grid>
+        </CardActions>
+      </Card>
     </>
   )
 }
