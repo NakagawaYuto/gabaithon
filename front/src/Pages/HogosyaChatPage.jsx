@@ -13,15 +13,12 @@ import MessageInput from '../components/MessageInputBar';
 import TalkLog from '../components/TalkHistory';
 import MatchEndButton from '../components/MatchEndButton';
 
-const ChatPage = () => {
+const HogosyaChatPage = () => {
   const params = useParams();
   const [talklog, setTalkLog] = React.useState([]);
 
   React.useEffect(() => {
     //ここでtalklogをDBから取得
-    setTalkLog([
-      {who:'elder', message_text: 'こんにちは'},
-    ])
     handleGetMessage()
   }, [])
 
@@ -33,7 +30,7 @@ const ChatPage = () => {
       await axios.post(baseURL + 'chats', {
         chats: {
           eldery_person_id: 1,
-          parent_id: 2,
+          parent_id: 1,
           speaker: "parent",
           message_content: message
         }
@@ -70,7 +67,7 @@ const ChatPage = () => {
 
   return(
     <>
-      このChatPageは{params.id}番のページです．
+      {/* このChatPageは{params.id}番のページです． */}
       <Grid 
         container
         direction="row"
@@ -87,7 +84,7 @@ const ChatPage = () => {
             padding: 0,
           }}
         >
-          <TalkLog talklog={talklog}/>
+          <TalkLog talklog={talklog} speaker={'parent'}/>
         </Grid>
         <Grid item>
           <MessageInput onSendMessage={handleSendMessage}/>
@@ -98,4 +95,4 @@ const ChatPage = () => {
   )
 }
 
-export default ChatPage;
+export default HogosyaChatPage;

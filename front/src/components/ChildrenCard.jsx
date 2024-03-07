@@ -42,6 +42,18 @@ const ChildCard = ({ ChildList }) => {
             margin: 10,
           }}
         >
+          <CardActionArea onClick={() => { navigate('/chat-g/'+String(children_parent_id));}}>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                { num_of_child }
+              </Typography>
+              <Typography gutterBottom variant="h5" component="div">
+                { child_age_string }
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                { child_gender_string }
+              </Typography>
+            </CardContent>
           <CardActionArea 
             onClick={
               () => { navigate('/chat/'+String(children_parent_id));}}
