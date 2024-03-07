@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import axios from "axios";
 import {
   Button,
   Dialog,
@@ -15,12 +15,32 @@ import {
 const MatchEndButton = () => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(0);
+  
+  const baseURL = "http://localhost:3000/"
+
+  const sendEvaluation = (elderly_person_id, parent_id) => {
+    console.log("elderly_person_id : "+String(elderly_person_id));
+    console.log("parent_id : "+String(parent_id));
+    
+    axios.post(baseURL+"evaluations", {
+      evaluations:{
+        elderly_person_id : elderly_person_id,
+        parent_id : parent_id,
+        evaluation : value,  // ここは入力された値
+      }
+    })
+  }
 
   const openDialog = () => {
     setOpen(true);
   }
 
   const handleClose = () => {
+    setOpen(false);
+  };
+
+  const finishChat = () => {
+    sendEvaluation(1, 1);
     setOpen(false);
   };
 
@@ -92,7 +112,7 @@ const MatchEndButton = () => {
               }}
             >
               <Button 
-                onClick={handleClose}
+                onClick={finishChat}
                 sx={{
                   color: 'black',
                   backgroundColor: 'pink',
