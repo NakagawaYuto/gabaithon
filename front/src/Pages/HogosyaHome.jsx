@@ -3,13 +3,13 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
 import {
-  List,
+  Grid,
   Collapse,
 } from '@mui/material';
 import { TransitionGroup } from 'react-transition-group';
 
 import JijiBabaCard from '../components/JijiBabaCard';
-
+import AppBarSimple from '../components/AppBarSimple';
 
 const HogosyaHome = () => {
   const baseURL = "http://localhost:3000/elderly_people/"
@@ -24,35 +24,6 @@ const HogosyaHome = () => {
   const handleListClick = (event, index) => {
     navigate('/chat-p/'+String(index));
   }
-
-  // React.useEffect(() => {
-  //   setJijiBabaLists([
-  //     {
-  //       'name':'おじいさん', 
-  //       'address': '住所', 
-  //       'birthday': '2000/9/21', 
-  //       'age': '80',
-  //       'sex': '男', 
-  //       'message': '自己紹介文'
-  //     },
-  //     {
-  //       'name':'おじいさん2', 
-  //       'address': '住所', 
-  //       'birthday': '2000/9/21', 
-  //       'age': '80',
-  //       'sex': '男', 
-  //       'message': '自己紹介文'
-  //     },
-  //     {
-  //       'name':'おじいさん3', 
-  //       'address': '住所', 
-  //       'birthday': '2000/9/21', 
-  //       'age': '80',
-  //       'sex': '男', 
-  //       'message': '自己紹介文'
-  //     },
-  //   ]);
-  // }, []);
 
   // 初回ロード時の処理を記述する.
   React.useEffect(() => 
@@ -80,9 +51,16 @@ const HogosyaHome = () => {
 
   return (
     <>
-      <List>
+      <AppBarSimple/>
+      <Grid 
+        container 
+        alignItems='center' 
+        justify='center' 
+        direction="column"
+        sx={{marginTop: '70px'}}
+      >
         <TransitionGroup>{generate()}</TransitionGroup>
-      </List>
+      </Grid>
     </>
   )
 }
