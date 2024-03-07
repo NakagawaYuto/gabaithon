@@ -10,6 +10,7 @@ import { TransitionGroup } from 'react-transition-group';
 
 import JijiBabaCard from '../components/JijiBabaCard';
 import AppBarSimple from '../components/AppBarSimple';
+import SimpleBottomNavigation from '../components/BottomNavBar';
 
 const HogosyaHome = () => {
   const baseURL = "http://localhost:3000/elderly_people/"
@@ -61,6 +62,7 @@ const HogosyaHome = () => {
       >
         <TransitionGroup>{generate()}</TransitionGroup>
       </Grid>
+      <SimpleBottomNavigation/>
     </>
   )
 }
