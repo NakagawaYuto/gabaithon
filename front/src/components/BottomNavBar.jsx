@@ -79,7 +79,7 @@ export default function SimpleBottomNavigation() {
                 color: 'white',
               },
             }}
-            onClick={()=>{navigate('/chat/1')}}
+            onClick={()=>{navigate('/chat-g/1')}}
           />
         </BottomNavigation>
       </Box>
@@ -145,7 +145,7 @@ export default function SimpleBottomNavigation() {
                 color: 'white',
               },
             }}
-            onClick={()=>{navigate('/chat/1')}}
+            onClick={()=>{navigate('/chat-p/1')}}
           />
         </BottomNavigation>
       </Box>
@@ -211,7 +211,7 @@ export default function SimpleBottomNavigation() {
                 color: 'white',
               },
             }}
-            onClick={()=>{navigate('/chat/1')}}
+            onClick={()=>{navigate('/chat-p/1')}}
           />
         </BottomNavigation>
       </Box>
@@ -277,7 +277,139 @@ export default function SimpleBottomNavigation() {
                 color: 'white',
               },
             }}
-            onClick={()=>{navigate('/chat/1')}}
+            onClick={()=>{navigate('/chat-g/1')}}
+          />
+        </BottomNavigation>
+      </Box>
+    );
+  }
+  else if (/^\/chat-g\/\d+$/.test(location.pathname)) {
+    return (
+      <Box sx={{ width: '100%' }}>
+        <BottomNavigation
+          showLabels
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          sx={{ 
+            position: 'fixed',
+            bottom:0, 
+            left: 0, 
+            right: 0,
+            backgroundColor: '#C5956B',
+            color: 'black',
+            elevation: 0,
+            '& .Mui-selected': {
+              color: 'white',
+            },
+            zIndex: 990,
+          }}
+        >
+          <BottomNavigationAction 
+            label="ホーム" 
+            icon={<HomeIcon />}
+            sx={{
+              '&:hover': {
+                color: 'white'
+              },
+              '& .Mui-selected': {
+                color: 'white',
+              },
+            }}
+            onClick={()=>{navigate('/')}}
+          />
+          <BottomNavigationAction 
+            label="探す" 
+            icon={<PersonSearchIcon />}
+            sx={{
+              '&:hover': {
+                color: 'white',
+              },
+              '& .Mui-selected': {
+                color: 'white',
+              },
+            }}
+            onClick={()=>{navigate('/home-g')}}
+          />
+          <BottomNavigationAction 
+            label="チャット" 
+            icon={<ChatIcon />} 
+            sx={{
+              '&:hover': {
+                color: 'white'
+              },
+              '& .Mui-selected': {
+                color: 'white',
+              },
+            }}
+            onClick={()=>{navigate('/chat-g/1')}}
+          />
+        </BottomNavigation>
+      </Box>
+    );
+  }
+  else if (/^\/chat-p\/\d+$/.test(location.pathname)) {
+    return (
+      <Box sx={{ width: '100%' }}>
+        <BottomNavigation
+          showLabels
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          sx={{ 
+            position: 'fixed',
+            bottom:0, 
+            left: 0, 
+            right: 0,
+            backgroundColor: '#C5956B',
+            color: 'black',
+            elevation: 0,
+            '& .Mui-selected': {
+              color: 'white',
+            },
+            zIndex: 990,
+          }}
+        >
+          <BottomNavigationAction 
+            label="ホーム" 
+            icon={<HomeIcon />}
+            sx={{
+              '&:hover': {
+                color: 'white'
+              },
+              '& .Mui-selected': {
+                color: 'white',
+              },
+            }}
+            onClick={()=>{navigate('/')}}
+          />
+          <BottomNavigationAction 
+            label="探す" 
+            icon={<PersonSearchIcon />}
+            sx={{
+              '&:hover': {
+                color: 'white',
+              },
+              '& .Mui-selected': {
+                color: 'white',
+              },
+            }}
+            onClick={()=>{navigate('/home-p')}}
+          />
+          <BottomNavigationAction 
+            label="チャット" 
+            icon={<ChatIcon />} 
+            sx={{
+              '&:hover': {
+                color: 'white'
+              },
+              '& .Mui-selected': {
+                color: 'white',
+              },
+            }}
+            onClick={()=>{navigate('/chat-p/1')}}
           />
         </BottomNavigation>
       </Box>

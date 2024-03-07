@@ -15,6 +15,8 @@ import JijiBabaLogin from './pages/JijiBabaLogin';
 import ChatPage from './pages/ChatPage';
 import NotFound from './pages/NotFoundPage';
 import FlashAlert from "./components/FlashAlert";
+import HogosyaChatPage from './pages/HogosyaChatPage';
+import JijiBabaChatPage from './pages/JijiBabaChatPage';
 import Sakura from './components/LeafDesign';
 import SimpleBottomNavigation from './components/BottomNavBar';
 
@@ -47,6 +49,8 @@ function App() {
         <Route path="home-p" element={<HogosyaHome />} />
         <Route path="home-g" element={<JijiBabaHome />} />
         <Route path="/chat/:id" element={<ChatPage />} />
+        <Route path="/chat-p/:id" element={<HogosyaChatPage />} />
+        <Route path="/chat-g/:id" element={<JijiBabaChatPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </div>
