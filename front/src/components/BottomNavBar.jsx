@@ -24,7 +24,7 @@ export default function SimpleBottomNavigation() {
       <Box sx={{ width: '100%' }}>
         <BottomNavigation
           showLabels
-          value={value}
+          value={-1}
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
@@ -90,7 +90,7 @@ export default function SimpleBottomNavigation() {
       <Box sx={{ width: '100%' }}>
         <BottomNavigation
           showLabels
-          value={value}
+          value={-1}
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
@@ -156,7 +156,7 @@ export default function SimpleBottomNavigation() {
       <Box sx={{ width: '100%' }}>
         <BottomNavigation
           showLabels
-          value={value}
+          value={1}
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
@@ -222,7 +222,7 @@ export default function SimpleBottomNavigation() {
       <Box sx={{ width: '100%' }}>
         <BottomNavigation
           showLabels
-          value={value}
+          value={1}
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
@@ -288,7 +288,7 @@ export default function SimpleBottomNavigation() {
       <Box sx={{ width: '100%' }}>
         <BottomNavigation
           showLabels
-          value={value}
+          value={2}
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
@@ -354,7 +354,7 @@ export default function SimpleBottomNavigation() {
       <Box sx={{ width: '100%' }}>
         <BottomNavigation
           showLabels
-          value={value}
+          value={2}
           onChange={(event, newValue) => {
             setValue(newValue);
           }}
