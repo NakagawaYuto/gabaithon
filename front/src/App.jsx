@@ -16,6 +16,7 @@ import ChatPage from './pages/ChatPage';
 import NotFound from './pages/NotFoundPage';
 import FlashAlert from "./components/FlashAlert";
 import Sakura from './components/LeafDesign';
+import SimpleBottomNavigation from './components/BottomNavBar';
 
 function App() {
   const [severity, setSeverity] = React.useState("error");
@@ -32,6 +33,7 @@ function App() {
       </AppBar>
       <FlashAlert severity={severity} message={message} createdAt={nowDate} />
       <Sakura></Sakura>
+      <SimpleBottomNavigation/>
       <Routes>
         <Route path="/" element={<IndexPage/>} />
         <Route 
