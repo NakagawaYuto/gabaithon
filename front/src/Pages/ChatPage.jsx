@@ -21,14 +21,8 @@ const ChatPage = () => {
     //ここでtalklogをDBから取得
     setTalkLog([
       {who:'elder', message_text: 'こんにちは'},
-      {who:'parent', message_text: 'こんにちは！'},
-      {who:'elder', message_text: 'こんにちは'},
-      {who:'parent', message_text: 'こんにちは！'},
-      {who:'elder', message_text: 'こんにちは'},
-      {who:'parent', message_text: 'こんにちは！'},
-      {who:'elder', message_text: 'こんにちは'},
-      {who:'parent', message_text: 'こんにちは！'},
     ])
+    handleGetMessage()
   }, [])
 
   const handleSendMessage = async (message) => {
@@ -39,7 +33,7 @@ const ChatPage = () => {
       await axios.post(baseURL + 'chats', {
         chats: {
           eldery_person_id: 1,
-          parent_id: 1,
+          parent_id: 2,
           speaker: "parent",
           message_content: message
         }
@@ -54,14 +48,23 @@ const ChatPage = () => {
     }
   }
 
-  const handleGetMessage = async () => {
+  async function handleGetMessage() {
     const baseURL = 'http://localhost:3000/'
     try {
       //axios get
-      
+      axios.get(baseURL + 'chats').then((response) => {
+        console.log(response.data);
+        let logs = []
+        response.data.forEach((element) => {
+          logs.push({who: element.speaker, message_text: element.message_content})
+        });
+        setTalkLog(logs)
+          
+      })
     }
     catch (error) {
       console.log(error);
+      return 0
     }
   }
 
