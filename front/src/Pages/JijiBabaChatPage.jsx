@@ -33,14 +33,14 @@ const JijiBabaChatPage = () => {
       await axios.post(baseURL + 'chats', {
         chats: {
           eldery_person_id: 1,
-          parent_id: 2,
-          speaker: "parent",
+          parent_id: 1,
+          speaker: "elderly_person",
           message_content: message
         }
       })
       .then((e)=> {
         console.log(e)
-        setTalkLog([...talklog, {who: 'parent', message_text: message}])
+        setTalkLog([...talklog, {who: 'elderly_person', message_text: message}])
       })
     }
     catch (error) {
@@ -87,7 +87,7 @@ const JijiBabaChatPage = () => {
             padding: 0,
           }}
         >
-          <TalkLog talklog={talklog} speaker={'elder'}/>
+          <TalkLog talklog={talklog} speaker={'elderly_person'}/>
         </Grid>
         <Grid item>
           <MessageInput onSendMessage={handleSendMessage}/>

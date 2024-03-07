@@ -22,7 +22,7 @@ const HogosyaHome = () => {
   }
 
   const handleListClick = (event, index) => {
-    navigate('/chat/'+String(index));
+    navigate('/chat-p/'+String(index));
   }
 
   // React.useEffect(() => {

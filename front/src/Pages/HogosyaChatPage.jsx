@@ -33,7 +33,7 @@ const HogosyaChatPage = () => {
       await axios.post(baseURL + 'chats', {
         chats: {
           eldery_person_id: 1,
-          parent_id: 2,
+          parent_id: 1,
           speaker: "parent",
           message_content: message
         }
