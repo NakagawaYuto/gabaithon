@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import {
   Button,
@@ -15,6 +16,7 @@ import {
 const MatchEndButton = () => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(0);
+  const navigate = useNavigate();
   
   const baseURL = "http://localhost:3000/"
 
@@ -28,6 +30,8 @@ const MatchEndButton = () => {
         parent_id : parent_id,
         evaluation : value,  // ここは入力された値
       }
+    }).then((e) => {
+      navigate('/home-p/');
     })
   }
 
