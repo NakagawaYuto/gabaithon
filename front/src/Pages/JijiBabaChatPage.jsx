@@ -4,6 +4,7 @@ import {
   useParams,
 } from 'react-router-dom';
 import axios from "axios"
+import ActionCable from 'actioncable';
 
 import { 
   Grid,
@@ -16,11 +17,27 @@ import MatchEndButton from '../components/MatchEndButton';
 const JijiBabaChatPage = () => {
   const params = useParams();
   const [talklog, setTalkLog] = React.useState([]);
+  const cable = React.useMemo(() => ActionCable.createConsumer('ws://localhost:3000/cable'), []);
+  const [subscription, setSubscription] = React.useState();
+  const [receivedMessage, setReceivedMessage] = React.useState("");
 
   React.useEffect(() => {
     //ここでtalklogをDBから取得
     handleGetMessage()
   }, [])
+
+  React.useEffect(() => {
+    const sub = cable.subscriptions.create({ channel: "RoomChannel" }, {
+      received: (msg) => setReceivedMessage(msg)
+    });
+    setSubscription(sub);
+  }, [cable])
+
+  React.useEffect(() => {
+    if (!receivedMessage) return;
+
+    handleGetMessage()
+  }, [receivedMessage]);
 
   const handleSendMessage = async (message) => {
     const baseURL = 'http://localhost:3000/';
@@ -37,6 +54,7 @@ const JijiBabaChatPage = () => {
       })
       .then((e)=> {
         console.log(e)
+        subscription?.perform('room_channel', { body: "test" });
         setTalkLog([...talklog, {who: 'elderly_person', message_text: message}])
       })
     }
