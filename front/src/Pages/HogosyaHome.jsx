@@ -9,7 +9,7 @@ import {
 import { TransitionGroup } from 'react-transition-group';
 
 import JijiBabaCard from '../components/JijiBabaCard';
-
+import AppBarSimple from '../components/AppBarSimple';
 
 const HogosyaHome = () => {
   const baseURL = "http://localhost:3000/elderly_people/"
@@ -51,7 +51,14 @@ const HogosyaHome = () => {
 
   return (
     <>
-      <Grid container alignItems='center' justify='center' direction="column">
+      <AppBarSimple/>
+      <Grid 
+        container 
+        alignItems='center' 
+        justify='center' 
+        direction="column"
+        sx={{marginTop: '70px'}}
+      >
         <TransitionGroup>{generate()}</TransitionGroup>
       </Grid>
     </>

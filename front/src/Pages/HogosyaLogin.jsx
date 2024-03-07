@@ -15,11 +15,13 @@ import {
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+import HeaderWithBackButton from '../components/AppBarSimple';
+
 const Login = ({showFlashAlert}) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = React.useState(false);
-  const [name, setName] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [name, setName] = React.useState('てすとゆーざ');
+  const [password, setPassword] = React.useState('nakayama7579');
   const gridWidth = '80%';
   const gridMargin = '20px';
   const fontSize = '30px';
@@ -44,12 +46,16 @@ const Login = ({showFlashAlert}) => {
 
   return (
     <>
+      <HeaderWithBackButton/>
       <Grid 
         container
         direction="row"
         justifyContent="center"
         alignItems="center"
-        style={{width:'100%'}}
+        style={{
+          width:'100%',
+          marginTop: '70px'
+        }}
       >
         {/* お名前 */}
         <Grid
