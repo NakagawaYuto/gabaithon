@@ -17,14 +17,23 @@ const HogosyaHome = () => {
   const [jijiBabaLists, setJijiBabaLists] = React.useState([]);
   const [selectedIndex, setSelectedIndex] = React.useState(-1);
 
-  const apply = () => {
-    axios.post(baseURL+"evaluations", {
-      evaluations:{
-        elderly_person_id : 1,
-        parent_id : 1,
-        evaluation : 0,  // ここは入力された値
-      }
+  const apply = async () => {
+    let evaluations = null;
+    await axios.get(baseURL+"evaluations/").then((response) => {
+      evaluations = response.data;
+      console.log(evaluations.length);
     })
+
+
+    if(evaluations.length === 0){
+      axios.post(baseURL+"evaluations/", {
+        evaluations:{
+          elderly_person_id : 1,
+          parent_id : 1,
+          evaluation : null,  // ここは入力された値
+        }
+      })
+    }
   }
   const handleSelect = (event, index) => {
     setSelectedIndex(index);

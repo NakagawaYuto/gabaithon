@@ -34,7 +34,7 @@ const MatchEndButton = () => {
     console.log("elderly_person_id : "+String(elderly_person_id));
     console.log("parent_id : "+String(parent_id));
     
-    axios.post(baseURL+"evaluations", {
+    axios.put(baseURL+"evaluations/1/", {
       evaluations:{
         elderly_person_id : elderly_person_id,
         parent_id : parent_id,
