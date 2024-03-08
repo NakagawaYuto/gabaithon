@@ -38,13 +38,14 @@ const ChildCard = ({ ChildList, ParentList }) => {
       child_age_string += String(children[j].age)+"歳, ";
       child_gender_string += String(children[j].gender) === "Male" ? "男性, " : "女性, ";
     }
-    const iconurl = "/icons/child_" + String(children_parent_id % 4 + 1) + ".jpeg";
+    const iconurl = "/icons/child_" + String(children_parent_id % 5 + 1) + ".jpeg";
     Cards.push(
       <Grid item key={children_parent_id}>
         <Card 
           sx={{ 
             width: '70vw',
-            borderRadius:'16px' 
+            borderRadius:'16px',
+            //background: "linear-gradient(to left, #e66465, #9198e5)",
           }} 
           elevation={4} 
           style={{
@@ -63,8 +64,8 @@ const ChildCard = ({ ChildList, ParentList }) => {
                   <Avatar 
                     sx={{ 
                       bgcolor: '#d1abde',
-                      width: '80px',
-                      height: '80px'
+                      width: '100px',
+                      height: '100px'
                     }} 
                     src={iconurl}>
                     <PersonIcon 
@@ -76,17 +77,19 @@ const ChildCard = ({ ChildList, ParentList }) => {
                 </IconButton>
               </Grid>
               <Grid item>
-                <CardContent>
+                <CardContent
+                  sx={{color: 'black'}}
+                >
                   <Typography gutterBottom variant="h5" component="div">
                     { parent_name }
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2">
                     { num_of_child }
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2">
                     { child_age_string }
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2">
                     { child_gender_string }
                   </Typography>
                 </CardContent>

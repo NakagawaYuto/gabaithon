@@ -58,6 +58,9 @@ const JijiBabaCard = ({
   const age = calculateAge(value.created_at, value.date_of_birth);
   const EvaluationList = useElderlyEvaluations(value.id);
   const iconurl = "/icons/jiji_" + String(index % 4 + 1) + ".jpeg";
+  const cardColor = value.gender === "male" ? 
+    "rgba(151, 217, 225, 0.7)" : 
+    "rgba(217, 175, 217, 0.7)";
 
   return (
     <>
@@ -66,7 +69,8 @@ const JijiBabaCard = ({
           key={index}
           sx={{ 
             width: '70vw',
-            borderRadius:'16px' 
+            borderRadius:'16px', 
+            backgroundColor: cardColor,
           }} 
           elevation={4} 
           style={{
@@ -89,8 +93,8 @@ const JijiBabaCard = ({
                   <Avatar 
                     sx={{ 
                       bgcolor: '#d1abde',
-                      width: '80px',
-                      height: '80px'
+                      width: '100px',
+                      height: '100px'
                     }} 
                     src={iconurl}>
                     <PersonIcon 
