@@ -13,6 +13,7 @@ const JijiBabaHome = () => {
 
   const elderly_person_id = 1;
   const parent_id_list = [];
+  const [parentList, setParentList] = React.useState([]);
 
   React.useEffect(() => {
     axios.get(baseURL + 'evaluations').then((response) => {
@@ -21,7 +22,9 @@ const JijiBabaHome = () => {
         parent_id_list.push(filteredData[i].parent_id);
       }
       console.log(parent_id_list);
-
+      return parent_id_list;
+    })
+    .then((parent_id_list)=>{
       // 親のIDから子供のデータ取得
       axios.get(baseURL + "children").then((response) => {
         const allChildList = [];
@@ -32,13 +35,21 @@ const JijiBabaHome = () => {
         console.log(allChildList);
         setChildList(allChildList); // childListの更新
       });
+    })
+    .then(()=>{
+      const parent_list = [];
+      axios.get(baseURL+"parents").then((response) => {
+        console.log(response.data);
+        setParentList(response.data); // parentListの更新
+        console.log(parentList); // 更新されたparentListの値をログに出力
+      });
     });
   }, []);
 
   return (
     <>
       <HeaderWithBackButton></HeaderWithBackButton>
-      <ChildCard ChildList={childList}></ChildCard>
+      <ChildCard ChildList={childList} ParentList={parentList}></ChildCard>
     </>
   );
 };

@@ -9,7 +9,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
 import * as React from 'react';
 
-const ChildCard = ({ ChildList }) => {
+const ChildCard = ({ ChildList, ParentList }) => {
 
   React.useEffect(() => {
     console.log(ChildList);
@@ -23,12 +23,20 @@ const ChildCard = ({ ChildList }) => {
   for (let i = 0; i < ChildList.length; i++) {
     const children = ChildList[i]; // 保護者1人当たりの子供全員
     const children_parent_id = children[0].parent_id
-    const num_of_child = "子供の人数: "+String(children.length)
+    let parent_name = ""
+    // 親の名前を取得
+    console.log(ParentList)
+    for (let j = 0; j < ParentList.length; j++) {
+      if (children_parent_id===ParentList[j].id) {
+        parent_name = ParentList[j].name;
+      }
+    }
+    const num_of_child = "子供の人数: "+String(children.length)+"人"
     let child_age_string = "";  // "2, 3"のように子供全員の年齢を表示する
     let child_gender_string = ""  // "male, female"のように子供全員の性別を表示する
     for (let j = 0; j < children.length; j++) {
-      child_age_string += String(children[j].age)+", ";
-      child_gender_string += String(children[j].gender)+", ";
+      child_age_string += String(children[j].age)+"歳, ";
+      child_gender_string += String(children[j].gender) === "Male" ? "男性, " : "女性, ";
     }
     Cards.push(
       <Grid item key={children_parent_id}>
@@ -69,9 +77,12 @@ const ChildCard = ({ ChildList }) => {
               <Grid item>
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
+                    { parent_name }
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
                     { num_of_child }
                   </Typography>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography variant="body2" color="text.secondary">
                     { child_age_string }
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
