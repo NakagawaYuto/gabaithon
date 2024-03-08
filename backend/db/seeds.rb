@@ -33,5 +33,5 @@ child2 = Child.create(name: "Child 2", gender: "Female", parent_id: parent1.id, 
 child3 = Child.create(name: "Child 3", gender: "Male", parent_id: parent2.id, age: 4)
 child4 = Child.create(name: "Child 4", gender: "Female", parent_id: parent2.id, age: 5)
 
-evaluation1 = Evaluation.create(elderly_person_id: 1, parent_id: 1, evaluation: 3)
-evaluation2 = Evaluation.create(elderly_person_id: 1, parent_id: 2, evaluation: 3)
+# evaluation1 = Evaluation.create(elderly_person_id: 1, parent_id: 1, evaluation: 3)
+# evaluation2 = Evaluation.create(elderly_person_id: 1, parent_id: 2, evaluation: 3)
