@@ -57,6 +57,7 @@ const JijiBabaCard = ({
 }) => {
   const age = calculateAge(value.created_at, value.date_of_birth);
   const EvaluationList = useElderlyEvaluations(value.id);
+  const iconurl = "/icons/jiji_" + String(index % 4 + 1) + ".jpeg";
 
   return (
     <>
@@ -91,7 +92,7 @@ const JijiBabaCard = ({
                       width: '80px',
                       height: '80px'
                     }} 
-                    src="/icons/1.jpeg">
+                    src={iconurl}>
                     <PersonIcon 
                       style={{ 
                         color: 'white',

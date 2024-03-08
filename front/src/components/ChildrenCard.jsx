@@ -38,6 +38,7 @@ const ChildCard = ({ ChildList, ParentList }) => {
       child_age_string += String(children[j].age)+"歳, ";
       child_gender_string += String(children[j].gender) === "Male" ? "男性, " : "女性, ";
     }
+    const iconurl = "/icons/child_" + String(children_parent_id % 4 + 1) + ".jpeg";
     Cards.push(
       <Grid item key={children_parent_id}>
         <Card 
@@ -65,7 +66,7 @@ const ChildCard = ({ ChildList, ParentList }) => {
                       width: '80px',
                       height: '80px'
                     }} 
-                    src="/icons/1.jpeg">
+                    src={iconurl}>
                     <PersonIcon 
                       style={{ 
                         color: 'white',
