@@ -106,6 +106,7 @@ const JijiBabaChatPage = () => {
             width: '90%', 
             margin: 0,
             marginTop: '20px',
+            marginBottom: '100px',
             padding: 0,
           }}
         >

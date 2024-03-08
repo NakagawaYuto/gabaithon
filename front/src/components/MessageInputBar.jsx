@@ -17,17 +17,19 @@ const messageMainColor = '#f2f2f2';
 const shadowColor = 'rgba(0, 0, 0, 0.1)';
 
 const messageInputContainer = css`
-  position: sticky;
-  bottom: 0;
-  width: 100%;
+  position: fixed;
+  bottom: 50px;
+  left:0px;
+  width: 95%;
+  margin: 2%;
   display: flex;
   align-items: center;
-  margin-left: -50px;
-  margin-top: 340px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-right: 40px;
-  padding-left: 40px;
+  // margin-left: -50px;
+  // margin-top: 340px;
+  // padding-top: 5px;
+  // padding-bottom: 5px;
+  // padding-right: 40px;
+  // padding-left: 40px;
   background-color: ${messageMainColor};
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -50,8 +52,9 @@ const messageInputContainer = css`
     align-items: center;
     width: 30px;
     height: 30px;
-    margin-left: 30px;
-    padding: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
+    padding: 8px;
     padding-left: 8px; // iconが非対称であるため，微調整しているだけ
     padding-right: 11px; // iconが非対称であるため，微調整しているだけ
     background-color: #007bff;
