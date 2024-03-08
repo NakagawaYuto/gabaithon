@@ -9,7 +9,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
 import * as React from 'react';
 
-const ChildCard = ({ ChildList }) => {
+const ChildCard = ({ ChildList, ParentList }) => {
 
   React.useEffect(() => {
     console.log(ChildList);
@@ -23,6 +23,14 @@ const ChildCard = ({ ChildList }) => {
   for (let i = 0; i < ChildList.length; i++) {
     const children = ChildList[i]; // 保護者1人当たりの子供全員
     const children_parent_id = children[0].parent_id
+    let parent_name = ""
+    // 親の名前を取得
+    console.log(ParentList)
+    for (let j = 0; j < ParentList.length; j++) {
+      if (children_parent_id===ParentList[j].id) {
+        parent_name = ParentList[j].name;
+      }
+    }
     const num_of_child = "子供の人数: "+String(children.length)
     let child_age_string = "";  // "2, 3"のように子供全員の年齢を表示する
     let child_gender_string = ""  // "male, female"のように子供全員の性別を表示する
@@ -68,6 +76,9 @@ const ChildCard = ({ ChildList }) => {
               </Grid>
               <Grid item>
                 <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    { parent_name }
+                  </Typography>
                   <Typography gutterBottom variant="h5" component="div">
                     { num_of_child }
                   </Typography>
