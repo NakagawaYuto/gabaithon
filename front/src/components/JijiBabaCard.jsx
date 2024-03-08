@@ -62,6 +62,8 @@ const JijiBabaCard = ({
     "rgba(175, 223, 228, 0.7)" : 
     "rgba(217, 175, 217, 0.7)";
 
+  console.log(value)
+
   return (
     <>
       <Grid item>
@@ -114,7 +116,7 @@ const JijiBabaCard = ({
                     年齢：{ `${age}` } 歳
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    性別: { value.gender }
+                    性別: { value.gender === 'male' ? "男性" : "女性" }
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     {/* { `${EvaluationList}` } */}
@@ -126,6 +128,9 @@ const JijiBabaCard = ({
                       }}
                       disabled
                     />
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    自己紹介: <br/> {value.self_introduction}
                   </Typography>
                 </CardContent>
               </Grid>
