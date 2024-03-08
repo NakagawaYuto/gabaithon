@@ -59,7 +59,7 @@ const JijiBabaCard = ({
   const EvaluationList = useElderlyEvaluations(value.id);
   const iconurl = "/icons/jiji_" + String(index % 4 + 1) + ".jpeg";
   const cardColor = value.gender === "male" ? 
-    "rgba(151, 217, 225, 0.7)" : 
+    "rgba(175, 223, 228, 0.7)" : 
     "rgba(217, 175, 217, 0.7)";
 
   return (
